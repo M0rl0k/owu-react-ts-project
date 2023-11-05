@@ -1,0 +1,98 @@
+.MovieInfo {
+    color: rgb(185, 185, 185);
+    width: 60%;
+    z-index: 10;
+
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+
+    border-right: 1px solid rgb(30,30,30);
+}
+
+.MovieInfo.light {
+    color: rgb(18,18,18);
+
+    border-right: 1px solid rgb(185,185,185);
+}
+
+.MovieInfoHeading {
+    margin-left: 5%;
+}
+
+.MovieInfoTop{
+    margin-left: 5%;
+
+}
+.MovieInfoMiddle{
+
+}
+
+.MovieInfo h2 {
+    font-size: 80px;
+    line-height: 70px;
+}
+
+.MovieInfoRelease {
+    width: 100%;
+    display: flex;
+    gap: 20px;
+
+    margin: 15px 20%;
+}
+
+.MovieInfoRelease span {
+    color: rgb(225, 69, 23);
+}
+
+.MovieInfoReleaseGenres {
+    display: flex;
+    align-items: center;
+}
+
+.MovieInfoReleaseGenre {
+    margin: 0 5px;
+}
+
+.MovieInfoStoryBlock {
+    display: flex;
+    align-items: center;
+    margin-left: 5%;
+}
+
+.MovieInfoStoryBlockHeading {
+    font-size: 30px;
+    line-height: 30px;
+    width: 10%;
+    margin-right: 6%;
+    font-weight: 500;
+}
+
+.MovieInfoStoryBlockText {
+    width: 60%;
+}
+
+.MovieInfoBottom{
+    display: flex;
+    margin-left: 5%;
+    gap: 5%;
+}
+
+.MovieInfoBottomBlock {
+    border: 1px solid rgb(225, 69, 23);
+
+    padding: 5px 15px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.MovieInfoRating {
+    margin-right: 15%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;}
+
+
+
