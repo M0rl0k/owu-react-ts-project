@@ -4,9 +4,8 @@ import {useNavigate} from "react-router-dom";
 import {GenreBadge} from "../GenreBadge";
 import {IGenres} from "../../interfaces";
 import {genresService} from "../../services";
-import css from './GenreList.module.css'
 import {useAppContext} from "../../hooks";
-
+import css from './GenreList.module.css'
 
 interface IProps {
     setFlag: Dispatch<SetStateAction<boolean>>
@@ -22,7 +21,6 @@ const GenreList:FC<IProps> = ({setFlag, setGenreID, setGenreName}) => {
     useEffect(()=> {
         genresService.getGenres().then(({data}) => setGenres(data.genres))
     }, [])
-
 
     const navigate = useNavigate();
 

@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
 
-import './ThemeSwitcher.module.css'
 
 import css from './ThemeSwitcher.module.css'
 import {useAppContext} from "../../hooks";
@@ -8,6 +7,7 @@ const ThemeSwitcher = () => {
 
     const [isOn, setIsOn] = useState<boolean>(false);
     const {state, setState} = useAppContext()
+
     const handleSwitch = () => {
         setIsOn(!isOn);
         if (state === 'dark') {
@@ -17,6 +17,7 @@ const ThemeSwitcher = () => {
             setState('dark')
         }
     };
+
     return (
         <div className={css.ThemeSwitcher}>
             <input

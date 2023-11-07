@@ -10,7 +10,8 @@
 
     color: rgb(185, 185, 185);
 
-    position: fixed;
+    position: sticky;
+    top: 0;
 
     z-index: 100;
 }

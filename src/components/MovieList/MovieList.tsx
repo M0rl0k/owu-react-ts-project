@@ -16,11 +16,9 @@ interface IProps {
 
 const MovieList:FC<IProps> = ({flag, genreID, genreName}) => {
 
-
     const [response, setResponse] = useState<IMoviesRes<IMovieInterface[]>>();
     const [query, setQuery] = useSearchParams({page: '1'})
     const [value, setInputValue] = useState<string>('')
-
 
     useEffect(()=> {
         if (value) {
@@ -37,8 +35,6 @@ const MovieList:FC<IProps> = ({flag, genreID, genreName}) => {
             moviesService.getMovies(+query.get('page')).then(({data}) => setResponse(data))
             return;
         }
-
-        console.log(flag, query.get('with_genre'), query.get('page'))
     }, [query, flag, value])
 
 

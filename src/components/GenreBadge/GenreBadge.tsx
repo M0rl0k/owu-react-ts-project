@@ -25,7 +25,6 @@ const GenreBadge: FC<IProps> = ({genre, setFlag, setGenreID, setGenreName}) => {
             prev.set('with_genre', `${id}`)
             return prev
         })
-
         setFlag(prevState => !prevState)
         setGenreName(name)
         setGenreID(id)

@@ -25,8 +25,6 @@ const MovieInfo:FC<IProps> = ({movieData}) => {
 
     const {state} = useAppContext()
 
-
-
     return (
         <div className={`${css.MovieInfo} ${state === 'dark' ? '' : css.light}`}>
             <h2 className={css.MovieInfoHeading}>{title.toUpperCase()}</h2>

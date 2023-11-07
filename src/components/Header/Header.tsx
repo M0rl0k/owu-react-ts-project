@@ -1,10 +1,10 @@
 import React from 'react';
-
-import css from './Header.module.css'
 import {useNavigate} from "react-router-dom";
+
 import {UserInfo} from "../UserInfo";
 import {ThemeSwitcher} from "../ThemeSwitcher";
 import {useAppContext} from "../../hooks";
+import css from './Header.module.css'
 
 const Header = () => {
 
@@ -14,9 +14,7 @@ const Header = () => {
         navigate('/')
     }
 
-
     const {state} = useAppContext()
-
 
     return (
         <div className={`${css.Header} ${state === `dark` ? '' : css.light}`}>
@@ -24,7 +22,6 @@ const Header = () => {
                 <div className={css.HeaderContainerLeft}>
                     <span onClick={goHome}>TEKA</span>
                     <ThemeSwitcher/>
-                    {/*<div className={css.HeaderContainerLeftTheme}></div>*/}
                 </div>
                 <div className={css.HeaderContainerRight}>
                     <UserInfo/>
