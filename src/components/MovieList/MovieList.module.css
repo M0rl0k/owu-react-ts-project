@@ -97,16 +97,11 @@
     font-size: 18px;
 
     color: rgb(185, 185, 185);
-    cursor: pointer;
 
     position: absolute;
     right: 1%;
 
     transition: .3s all;
-}
-
-.MovieListSearch button:hover {
-    color: rgb(225, 69, 23);
 }
 
 .MovieListSearch button:enabled {
