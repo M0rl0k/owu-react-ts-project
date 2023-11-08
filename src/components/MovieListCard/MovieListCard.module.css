@@ -50,3 +50,11 @@
     white-space: pre-wrap;
     text-overflow: ellipsis;
 }
+
+@media screen and (min-width: 1845px) {
+    .MovieListCard {
+        width: 230px;
+        height: 390px;
+    }
+}
+

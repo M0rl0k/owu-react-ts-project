@@ -40,7 +40,7 @@ const GenreBadge: FC<IProps> = ({genre, setFlag}) => {
 
     return (
         <a tabIndex={0} className={`${css.GenreBadge} ${state === 'dark' ? '' : css.light}
-         ${query.get('with_genre') === genre.id + '' ? css.active : ''}`}
+         ${query.get('with_genre') === genre.id.toString() ? css.active : ''}`}
            onClick={handleClick}
             onKeyDown={(e) => handleKey(e)}>
             {name}
