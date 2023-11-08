@@ -1,23 +1,32 @@
-import React, {Dispatch, FC, SetStateAction} from 'react';
+import React, {FC} from 'react';
 
-import {IGenres} from "../../interfaces";
 
 import css from './GenreBadge.module.css'
+import {IGenres} from "../../interfaces";
 import {useSearchParams} from "react-router-dom";
 import {useAppContext} from "../../hooks";
+import {ISetState} from "../../types/ISetState";
 
 interface IProps {
     genre: IGenres
-    setFlag?: Dispatch<SetStateAction<boolean>>
-    setGenreName?: Dispatch<SetStateAction<string>>
+    setFlag?: ISetState<boolean>
 }
 
-const GenreBadge: FC<IProps> = ({genre, setFlag, setGenreName}) => {
+const GenreBadge: FC<IProps> = ({genre, setFlag}) => {
 
     const {name, id} = genre
 
-    const [, setQuery] = useSearchParams({with_genre: ''})
+    const [query, setQuery] = useSearchParams({with_genre: ''})
 
+    const handleKey = (e:React.KeyboardEvent<HTMLAnchorElement>):void => {
+      if (e.key !== 'Enter') return
+        setQuery(prev => {
+            prev.set('page', '1')
+            prev.set('with_genre', `${id}`)
+            return prev
+        })
+        setFlag(prevState => !prevState)
+    }
     const handleClick = ():void => {
         setQuery(prev => {
             prev.set('page', '1')
@@ -25,13 +34,15 @@ const GenreBadge: FC<IProps> = ({genre, setFlag, setGenreName}) => {
             return prev
         })
         setFlag(prevState => !prevState)
-        setGenreName(name)
     }
 
     const {state} = useAppContext()
 
     return (
-        <a className={`${css.GenreBadge} ${state === 'dark' ? '' : css.light}`} onClick={handleClick}>
+        <a tabIndex={0} className={`${css.GenreBadge} ${state === 'dark' ? '' : css.light}
+         ${query.get('with_genre') === genre.id + '' ? css.active : ''}`}
+           onClick={handleClick}
+            onKeyDown={(e) => handleKey(e)}>
             {name}
         </a>
     );

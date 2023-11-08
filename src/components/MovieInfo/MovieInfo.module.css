@@ -23,6 +23,7 @@
 .MovieInfoTop{
     margin-left: 5%;
 
+    position: relative;
 }
 .MovieInfoMiddle{
 
@@ -93,6 +94,24 @@
     display: flex;
     justify-content: flex-end;
     align-items: center;
+}
+
+@keyframes myAnim {
+    0% {transform: translateX(10px)}
+    50% {transform: translateX(0px)}
+    100% {transform: translateX(10px)}
+}
+
+.Arrow {
+    position: absolute;
+    top: 10px;
+
+    font-size: 30px;
+
+    animation: myAnim 1.5s ease-in-out infinite;
+    color: rgb(225, 69, 23);
+
+    cursor: pointer;
 }
 
 

@@ -12,6 +12,10 @@
     background: rgb(185, 185, 185);
 }
 
+.GenreBadge.active {
+    background: rgb(225, 69, 23);
+}
+
 .GenreBadge:hover, .GenreBadge:focus {
     cursor: pointer;
     background: rgb(225, 69, 23);

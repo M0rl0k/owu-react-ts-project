@@ -10,14 +10,13 @@ const MoviesPage = () => {
 
 
     const [flag, setFlag] = useState<boolean>(false)
-    const [genreName, setGenreName] = useState<string>()
     const {state} = useAppContext()
 
     return (
         <section className={`${css.MoviePage} ${state === 'dark' ? '' : css.light}`}>
             <div className={css.MoviePageWrap}>
-                <GenreList setFlag={setFlag} setGenreName={setGenreName}/>
-                <MovieList flag={flag} genreName={genreName}/>
+                <GenreList setFlag={setFlag}/>
+                <MovieList flag={flag}/>
             </div>
         </section>
     );

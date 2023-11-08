@@ -10,10 +10,9 @@ import {useAppContext} from "../../hooks";
 
 interface IProps {
     flag: boolean
-    genreName: string
 }
 
-const MovieList:FC<IProps> = ({flag, genreName}) => {
+const MovieList:FC<IProps> = ({flag}) => {
 
     const [response, setResponse] = useState<IMoviesRes<IMovieInterface[]>>();
     const [query, setQuery] = useSearchParams({page: '1'})
@@ -26,7 +25,6 @@ const MovieList:FC<IProps> = ({flag, genreName}) => {
         }
 
         if (query.get('with_genre')) {
-            console.log(2)
             moviesService.getMoviesByGenre(+query.get('page'), query.get('with_genre')).then(({data}) => setResponse(data))
             return
         }
@@ -55,13 +53,12 @@ const MovieList:FC<IProps> = ({flag, genreName}) => {
     const isPrev = +query.get('page') > 1;
     const isNext = +query.get('page') === response?.total_pages
 
-
     const {state} = useAppContext()
 
     return (
         <section className={css.WrapMovieList}>
             <div className={css.MovieListSearch}>
-                <div className={`${css.MovieListSearchGenre} ${state === 'dark' ? '' : css.light}`}>{genreName ? genreName : 'All movies'}</div>
+                {/*<div className={`${css.MovieListSearchGenre} ${state === 'dark' ? '' : css.light}`}>{genreName ? genreName : 'All movies'}</div>*/}
                 <input type="text"
                        placeholder={'Type to search...'}
                        value={value}

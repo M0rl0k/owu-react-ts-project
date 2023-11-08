@@ -4,6 +4,7 @@ import {IMovieDetails} from "../../interfaces/movieDetailsInterface";
 import css from './MovieInfo.module.css'
 import {StarsRating} from "../StarsRating";
 import {useAppContext} from "../../hooks";
+import {useNavigate} from "react-router-dom";
 
 interface IProps {
     movieData: IMovieDetails
@@ -25,10 +26,13 @@ const MovieInfo:FC<IProps> = ({movieData}) => {
 
     const {state} = useAppContext()
 
+    const navigate = useNavigate()
+
     return (
         <article className={`${css.MovieInfo} ${state === 'dark' ? '' : css.light}`}>
             <h2 className={css.MovieInfoHeading}>{title.toUpperCase()}</h2>
             <div className={css.MovieInfoTop}>
+                <i className={`fa-solid fa-angles-left ${css.Arrow}`} onClick={() => navigate(-1)}></i>
                 <div className={css.MovieInfoRelease}>
                     <p>{release_date}</p>
                     <p><span>|</span></p>

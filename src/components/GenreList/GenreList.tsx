@@ -10,10 +10,9 @@ import css from './GenreList.module.css'
 
 interface IProps {
     setFlag: ISetState<boolean>
-    setGenreName : ISetState<string>
 }
 
-const GenreList:FC<IProps> = ({setFlag, setGenreName}) => {
+const GenreList:FC<IProps> = ({setFlag}) => {
 
     const [genres, setGenres] = useState<IGenres[]>([]);
     const {state} = useAppContext()
@@ -24,10 +23,18 @@ const GenreList:FC<IProps> = ({setFlag, setGenreName}) => {
 
     const navigate = useNavigate();
 
+    const handleKey = (e:React.KeyboardEvent<HTMLSpanElement>):void => {
+        if (e.key !== 'Enter') return
+        navigate('/')
+    }
+
     return (
         <nav className={`${css.GenreList} ${state === 'dark' ? '' : css.light}`}>
-            <span onClick={()=> navigate('/')}>All Movies</span>
-            {genres.map(genre => <GenreBadge key={genre.id} genre={genre} setFlag={setFlag} setGenreName={setGenreName}/>)}
+            <span
+                tabIndex={0}
+                onClick={()=> navigate('/')}
+                onKeyDown={(e) => handleKey(e)}>All Movies</span>
+            {genres.map(genre => <GenreBadge key={genre.id} genre={genre} setFlag={setFlag}/>)}
         </nav>
     );
 };
