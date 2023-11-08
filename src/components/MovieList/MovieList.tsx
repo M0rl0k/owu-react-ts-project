@@ -58,7 +58,6 @@ const MovieList:FC<IProps> = ({flag}) => {
     return (
         <section className={css.WrapMovieList}>
             <div className={css.MovieListSearch}>
-                {/*<div className={`${css.MovieListSearchGenre} ${state === 'dark' ? '' : css.light}`}>{genreName ? genreName : 'All movies'}</div>*/}
                 <input type="text"
                        placeholder={'Type to search...'}
                        value={value}

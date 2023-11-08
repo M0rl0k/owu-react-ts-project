@@ -99,7 +99,7 @@
 
 .MovieListSearch input:focus {
     border: 1px solid rgb(225, 69, 23);
-    scale: 105%;
+    scale: 102%;
 }
 
 .MovieListSearch button {
