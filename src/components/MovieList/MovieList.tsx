@@ -77,6 +77,7 @@ const MovieList:FC<IProps> = ({flag}) => {
                 <button onClick={prevPage} disabled={!isPrev}>
                     <i className="fa-solid fa-angles-left"></i>
                 </button>
+                {query.get('page')}
                 <button onClick={nextPage} disabled={isNext}>
                     <i className="fa-solid fa-angles-right"></i>
                 </button>
