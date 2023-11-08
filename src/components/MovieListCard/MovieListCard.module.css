@@ -51,10 +51,29 @@
     text-overflow: ellipsis;
 }
 
-@media screen and (min-width: 1845px) {
+@media screen and (min-width: 1441px) and (max-width: 1600px){
     .MovieListCard {
-        width: 230px;
-        height: 390px;
+        width: 210px;
+        height: 380px;
     }
 }
+
+@media screen and (min-width: 1601px) and (max-width: 1800px) {
+    .MovieListCard {
+        width: 230px;
+        height: 400px;
+    }
+}
+
+@media screen and (min-width: 1801px) and (max-width: 1921px) {
+    .MovieListCard {
+        width: 250px;
+        height: 430px;
+    }
+
+    .MovieListCard:hover, .MovieListCard:focus {
+        scale: 105%;
+    }
+}
+
 
