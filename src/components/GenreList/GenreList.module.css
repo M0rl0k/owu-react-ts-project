@@ -21,6 +21,10 @@
     scrollbar-width: none;
 }
 
+.GenreList span {
+    width: fit-content;
+}
+
 .GenreList.light {
     color: rgb(18,18,18);
 }
@@ -29,8 +33,8 @@
     display: none;
 }
 
-.GenreList span:hover {
+.GenreList span:hover, .GenreList span:focus {
     cursor: pointer;
     color: rgb(225, 69, 23);
-
 }
+

@@ -10,11 +10,10 @@ import {useAppContext} from "../../hooks";
 
 interface IProps {
     flag: boolean
-    genreID: number
     genreName: string
 }
 
-const MovieList:FC<IProps> = ({flag, genreID, genreName}) => {
+const MovieList:FC<IProps> = ({flag, genreName}) => {
 
     const [response, setResponse] = useState<IMoviesRes<IMovieInterface[]>>();
     const [query, setQuery] = useSearchParams({page: '1'})
@@ -23,11 +22,12 @@ const MovieList:FC<IProps> = ({flag, genreID, genreName}) => {
     useEffect(()=> {
         if (value) {
             moviesService.searchByKeyWord(value, +query.get('page')).then(({data}) => setResponse(data))
-            return;
+            return
         }
 
         if (query.get('with_genre')) {
-            moviesService.getMoviesByGenre(+query.get('page'), `${genreID}`).then(({data}) => setResponse(data))
+            console.log(2)
+            moviesService.getMoviesByGenre(+query.get('page'), query.get('with_genre')).then(({data}) => setResponse(data))
             return
         }
 
@@ -59,7 +59,7 @@ const MovieList:FC<IProps> = ({flag, genreID, genreName}) => {
     const {state} = useAppContext()
 
     return (
-        <div className={css.WrapMovieList}>
+        <section className={css.WrapMovieList}>
             <div className={css.MovieListSearch}>
                 <div className={`${css.MovieListSearchGenre} ${state === 'dark' ? '' : css.light}`}>{genreName ? genreName : 'All movies'}</div>
                 <input type="text"
@@ -84,7 +84,7 @@ const MovieList:FC<IProps> = ({flag, genreID, genreName}) => {
                     <i className="fa-solid fa-angles-right"></i>
                 </button>
             </div>}
-        </div>
+        </section>
 
     );
 };

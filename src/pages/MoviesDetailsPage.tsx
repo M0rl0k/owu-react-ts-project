@@ -10,6 +10,7 @@ const MoviesDetailsPage = () => {
 
     const {pathname} = useAppLocation<string>()
     const id = pathname.split('/')[2];
+    const {state} = useAppContext()
 
     const [movieData, setMovieData]= useState<IMovieDetails>(null)
 
@@ -17,16 +18,13 @@ const MoviesDetailsPage = () => {
         moviesService.getMovieDetailsById(+id).then(({data}) => setMovieData(data))
     }, [id])
 
-    const {state} = useAppContext()
-
-
     return (
-        <div className={`${css.MoviesDetailsPage} ${state === 'dark' ? '' : css.light}`}>
+        <section className={`${css.MoviesDetailsPage} ${state === 'dark' ? '' : css.light}`}>
             <div className={css.MoviesDetailsPageWrap}>
-                {movieData && <PosterPreview posterPath={movieData.poster_path}/>}
+                {movieData && <PosterPreview posterPath={movieData.poster_path} alt={movieData.title}/>}
                 {movieData && <MovieInfo movieData={movieData}/>}
             </div>
-        </div>
+        </section>
     );
 };
 

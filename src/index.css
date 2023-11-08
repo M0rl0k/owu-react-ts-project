@@ -7,8 +7,13 @@
 }
 
 body {
-    overscroll-behavior: none;
+    background: rgb(19, 19, 19);
 }
+
+body.light {
+    background: rgb(211, 211, 211);
+}
+
 
 
 

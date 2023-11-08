@@ -4,14 +4,15 @@ import {posterURL} from "../../constants";
 import css from './PosterPreview.module.css'
 
 interface IProps {
-    posterPath: string
+    posterPath: string,
+    alt: string
 }
 
-const PosterPreview:FC<IProps> = ({posterPath}) => {
+const PosterPreview:FC<IProps> = ({posterPath, alt}) => {
     return (
-        <div className={css.PosterPreview}>
-            <img src={`${posterURL}${posterPath}`} alt=""/>
-        </div>
+        <aside className={css.PosterPreview}>
+            <img src={`${posterURL}${posterPath}`} alt={alt}/>
+        </aside>
     );
 };
 

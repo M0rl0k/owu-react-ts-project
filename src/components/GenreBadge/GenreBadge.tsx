@@ -9,11 +9,10 @@ import {useAppContext} from "../../hooks";
 interface IProps {
     genre: IGenres
     setFlag?: Dispatch<SetStateAction<boolean>>
-    setGenreID?: Dispatch<SetStateAction<number>>
     setGenreName?: Dispatch<SetStateAction<string>>
 }
 
-const GenreBadge: FC<IProps> = ({genre, setFlag, setGenreID, setGenreName}) => {
+const GenreBadge: FC<IProps> = ({genre, setFlag, setGenreName}) => {
 
     const {name, id} = genre
 
@@ -27,15 +26,14 @@ const GenreBadge: FC<IProps> = ({genre, setFlag, setGenreID, setGenreName}) => {
         })
         setFlag(prevState => !prevState)
         setGenreName(name)
-        setGenreID(id)
     }
 
     const {state} = useAppContext()
 
     return (
-        <div className={`${css.GenreBadge} ${state === 'dark' ? '' : css.light}`} onClick={handleClick}>
+        <a className={`${css.GenreBadge} ${state === 'dark' ? '' : css.light}`} onClick={handleClick}>
             {name}
-        </div>
+        </a>
     );
 };
 

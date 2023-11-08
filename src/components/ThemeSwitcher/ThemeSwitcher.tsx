@@ -7,6 +7,7 @@ const ThemeSwitcher = () => {
 
     const [isOn, setIsOn] = useState<boolean>(false);
     const {state, setState} = useAppContext()
+    const body = document.body
 
     const handleSwitch = () => {
         setIsOn(!isOn);
@@ -16,6 +17,7 @@ const ThemeSwitcher = () => {
         if (state === 'light') {
             setState('dark')
         }
+        body.classList.toggle('light')
     };
 
     return (

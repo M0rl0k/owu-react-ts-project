@@ -18,12 +18,15 @@
     color: rgb(18, 18 , 18);
 }
 
-.MovieListCard:hover {
+.MovieListCard:hover, .MovieListCard:focus{
     cursor: pointer;
 
     outline: 1px solid rgb(225, 69, 23);
     box-shadow: rgb(140, 52, 29) 0 0 15px;
+
+    scale: 103%;
 }
+
 
 .MovieListCardTop img {
     width: 100%;

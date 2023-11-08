@@ -78,7 +78,7 @@
 
     outline: none;
 
-    transition: 0.7s all;
+    transition: 0.5s all;
 }
 
 .MovieListSearch input.light {
@@ -88,6 +88,7 @@
 
 .MovieListSearch input:focus {
     border: 1px solid rgb(225, 69, 23);
+    scale: 105%;
 }
 
 .MovieListSearch button {

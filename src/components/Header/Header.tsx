@@ -17,7 +17,7 @@ const Header = () => {
     const {state} = useAppContext()
 
     return (
-        <div className={`${css.Header} ${state === `dark` ? '' : css.light}`}>
+        <header className={`${css.Header} ${state === `dark` ? '' : css.light}`}>
             <div className={css.HeaderContainer}>
                 <div className={css.HeaderContainerLeft}>
                     <span onClick={goHome}>TEKA</span>
@@ -27,7 +27,7 @@ const Header = () => {
                     <UserInfo/>
                 </div>
             </div>
-        </div>
+        </header>
     );
 };
 

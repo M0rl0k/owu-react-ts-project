@@ -1,19 +1,19 @@
-import React, {Dispatch, FC, SetStateAction, useEffect, useState} from 'react';
+import React, {FC, useEffect, useState} from 'react';
 import {useNavigate} from "react-router-dom";
 
 import {GenreBadge} from "../GenreBadge";
 import {IGenres} from "../../interfaces";
 import {genresService} from "../../services";
 import {useAppContext} from "../../hooks";
+import {ISetState} from "../../types/ISetState";
 import css from './GenreList.module.css'
 
 interface IProps {
-    setFlag: Dispatch<SetStateAction<boolean>>
-    setGenreID : Dispatch<SetStateAction<number>>
-    setGenreName : Dispatch<SetStateAction<string>>
+    setFlag: ISetState<boolean>
+    setGenreName : ISetState<string>
 }
 
-const GenreList:FC<IProps> = ({setFlag, setGenreID, setGenreName}) => {
+const GenreList:FC<IProps> = ({setFlag, setGenreName}) => {
 
     const [genres, setGenres] = useState<IGenres[]>([]);
     const {state} = useAppContext()
@@ -25,10 +25,10 @@ const GenreList:FC<IProps> = ({setFlag, setGenreID, setGenreName}) => {
     const navigate = useNavigate();
 
     return (
-        <div className={`${css.GenreList} ${state === 'dark' ? '' : css.light}`}>
+        <nav className={`${css.GenreList} ${state === 'dark' ? '' : css.light}`}>
             <span onClick={()=> navigate('/')}>All Movies</span>
-            {genres.map(genre => <GenreBadge key={genre.id} genre={genre} setFlag={setFlag} setGenreID={setGenreID} setGenreName={setGenreName}/>)}
-        </div>
+            {genres.map(genre => <GenreBadge key={genre.id} genre={genre} setFlag={setFlag} setGenreName={setGenreName}/>)}
+        </nav>
     );
 };
 
