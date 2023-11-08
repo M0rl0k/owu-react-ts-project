@@ -27,10 +27,15 @@
     scale: 103%;
 }
 
+.MovieListCardTop {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
 .MovieListCardTop img {
     width: 100%;
-    min-height: 270px;
+    height: clamp(270px, 270px, 270px);
     border-radius: 10px;
 }
 
