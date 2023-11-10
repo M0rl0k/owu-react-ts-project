@@ -8,7 +8,8 @@ const search = '/search/movie';
 const urls = {
     movies: {
         movies,
-        byId: (id:number):string => `movie/${id}`
+        byId: (id:number):string => `/movie/${id}`,
+        castById : (id:number): string => `/movie/${id}/credits`
     },
     genres,
     search

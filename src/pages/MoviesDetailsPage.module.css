@@ -17,4 +17,6 @@
     display: flex;
     flex-flow: row-reverse;
     justify-content: space-between;
+
+    margin-top: 30px;
 }
