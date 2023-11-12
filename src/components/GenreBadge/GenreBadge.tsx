@@ -18,7 +18,7 @@ const GenreBadge: FC<IProps> = ({genre, setFlag}) => {
 
     const [query, setQuery] = useSearchParams({with_genre: ''})
 
-    const handleKey = (e:React.KeyboardEvent<HTMLAnchorElement>):void => {
+    const handleKey = (e:React.KeyboardEvent<HTMLButtonElement>):void => {
       if (e.key !== 'Enter') return
         setQuery(prev => {
             prev.set('page', '1')
@@ -39,12 +39,12 @@ const GenreBadge: FC<IProps> = ({genre, setFlag}) => {
     const {state} = useAppContext()
 
     return (
-        <a tabIndex={0} className={`${css.GenreBadge} ${state === 'dark' ? '' : css.light}
+        <button tabIndex={0} className={`${css.GenreBadge} ${state === 'dark' ? '' : css.light}
          ${query.get('with_genre') === genre.id.toString() ? css.active : ''}`}
            onClick={handleClick}
             onKeyDown={(e) => handleKey(e)}>
             {name}
-        </a>
+        </button>
     );
 };
 

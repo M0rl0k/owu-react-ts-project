@@ -35,7 +35,6 @@
 
 .MovieListCardTop img {
     width: 100%;
-    height: clamp(270px, 270px, 270px);
     border-radius: 10px;
 }
 
